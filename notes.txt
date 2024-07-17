@@ -1,0 +1,10 @@
+// Main idea of JS
+   - Save the data
+   - Generate the html
+   - Make it interactive
+
+
+// Use objects and arrays to organise data(data structure)
+
+
+//.toFixed(2) converts a number into a string to a number of decimal places
