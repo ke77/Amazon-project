@@ -8,3 +8,9 @@
 
 
 //.toFixed(2) converts a number into a string to a number of decimal places
+
+
+// Scripts elements are loaded one by one, so order of file links is important
+
+
+Last
