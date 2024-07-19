@@ -45,7 +45,7 @@ products.forEach((product) => { //accumulator pattern on next line
         Added
         </div>
 
-        <button class="add-to-cart-button button-primary">
+        <button class="add-to-cart-button button-primary js_add_to_cart" data-product-id="${product.id}">
         Add to Cart
         </button>
     </div>
@@ -54,3 +54,28 @@ products.forEach((product) => { //accumulator pattern on next line
 
 
 document.querySelector('.js_products_grid').innerHTML = productsHTML//generates html and puts it on the page 
+
+document.querySelectorAll('.js_add_to_cart').forEach((button) => {
+    button.addEventListener('click', () => {
+        const productId = button.dataset.productId;
+
+        let matchingItem;
+
+        cart.forEach((cartItem) => { //cartItem is whole object
+            if(productId === cartItem.productId) {
+                matchingItem = cartItem;
+            }
+        });
+
+        if(matchingItem) {
+            matchingItem.quantity++;
+        } else {
+            cart.push({
+                productId: productId,
+                quantity: 1
+            });
+        }
+
+        console.log(cart);
+    });
+});

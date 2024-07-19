@@ -13,4 +13,7 @@
 // Scripts elements are loaded one by one, so order of file links is important
 
 
+// Data attribut is just another html attribute that allows us to attach any information to an element(uses kebab case)
+
+
 Last
