@@ -16,4 +16,12 @@
 // Data attribut is just another html attribute that allows us to attach any information to an element(uses kebab case)
 
 
+// Not using modules can cause naming conflicts
+   _How to create a module_
+    - Create a file
+    - Don't load file with script tag
+    - all imported variables should be declared at the top
+    - has to be online to work(live server) 
+
+
 Last 12:18:00
