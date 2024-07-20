@@ -1,4 +1,6 @@
-import {cart} from '../javascript-amazon-project-main/data/cart.js';
+// import {cart as myCart} from '../data/cart.js'; //literally changes var name so another 'cart' var can be declared without causing naming conflicts
+
+import {cart} from '../data/cart.js';
 
 
 
@@ -28,7 +30,7 @@ products.forEach((product) => { //accumulator pattern on next line
         </div>
 
         <div class="product-quantity-container">
-        <select>
+        <select class="js_select_button" data-product-id="${product.id}">
             <option selected value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -61,9 +63,11 @@ document.querySelector('.js_products_grid').innerHTML = productsHTML//generates 
 
 
 // document.querySelectorAll('.js_select_button').forEach((selectButton) => {
-//     // console.log('select');
 //     selectButton.addEventListener('click', () => {
-//         console.log('select');
+//         // console.log(selectButton.value);
+//         // console.log(selectButton.productId);
+//         const productId = selectButton.dataset.productId;
+//         console.log(productId);
 //     });
 // });
 
