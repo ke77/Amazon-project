@@ -1,6 +1,7 @@
 // import {cart as myCart} from '../data/cart.js'; //literally changes var name so another 'cart' var can be declared without causing naming conflicts
 
 import {cart} from '../data/cart.js';
+import {products} from '../data/products.js';
 
 
 

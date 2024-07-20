@@ -22,6 +22,7 @@
     - Don't load file with script tag
     - all imported variables should be declared at the top
     - has to be online to work(live server) 
+    **file that variables get imported to should have their html tag have an attr of type 'module'
 
 
 Last 12:18:00
