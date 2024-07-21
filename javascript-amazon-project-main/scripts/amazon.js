@@ -1,6 +1,7 @@
 // import {cart as myCart} from '../data/cart.js'; //literally changes var name so another 'cart' var can be declared without causing naming conflicts
+// import * as cartModule from '../data/cart.js' //imports everything from cart.js and puts it in a var that can be accessed as a property or method(using cartModule.cart or cartModule.addToCart('id');)
 
-import {cart} from '../data/cart.js';
+import {cart, addToCart} from '../data/cart.js';
 import {products} from '../data/products.js';
 
 
@@ -63,44 +64,27 @@ products.forEach((product) => { //accumulator pattern on next line
 document.querySelector('.js_products_grid').innerHTML = productsHTML//generates html and puts it on the page 
 
 
-// document.querySelectorAll('.js_select_button').forEach((selectButton) => {
-//     selectButton.addEventListener('click', () => {
-//         // console.log(selectButton.value);
-//         // console.log(selectButton.productId);
-//         const productId = selectButton.dataset.productId;
-//         console.log(productId);
-//     });
-// });
 
 
+function updateCartQuantity() {
+    // Calcultes cart quantity
+    let cartQuantity = 0;
+    cart.forEach((cartItem) => {
+        cartQuantity += cartItem.quantity;
+    });
+
+    // Updates page
+    document.querySelector('.js_cart_quantity')
+        .innerHTML = cartQuantity;
+}
+    
+    
 document.querySelectorAll('.js_add_to_cart').forEach((button) => {
     button.addEventListener('click', () => {
         const productId = button.dataset.productId;
+    
+        addToCart(productId);
+        updateCartQuantity();
 
-        let matchingItem;
-
-        cart.forEach((cartItem) => { //cartItem is whole object
-            if(productId === cartItem.productId) {
-                matchingItem = cartItem;
-            }
-        });
-
-        if(matchingItem) {
-            matchingItem.quantity++;
-        } else {
-            cart.push({
-                productId: productId,
-                quantity: 1
-            });
-        }
-
-        let cartQuantity = 0;
-        cart.forEach((cartItem) => {
-            cartQuantity += cartItem.quantity;
-        });
-
-
-        document.querySelector('.js_cart_quantity')
-            .innerHTML = cartQuantity;
     });
 });
