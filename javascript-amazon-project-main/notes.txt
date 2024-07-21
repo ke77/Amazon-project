@@ -25,4 +25,8 @@
     **file that variables get imported to should have their html tag have an attr of type 'module'
 
 
+// A group of html radio selectors with the same name will give options for the group(so different names for groups under different products)
+
+
+
 Last 12:18:00
