@@ -1,7 +1,7 @@
 import { cart, removeFromCart, calculateCartQuantity, updateDeliveryOption } from '../../data/cart.js';
-import { products } from '../../data/products.js';
+import { products, getProduct } from '../../data/products.js';
 import { formatCurrency } from '../utils/money.js';
-import { deliveryOptions } from '../../data/deliveryOptions.js';
+import { deliveryOptions, getDeliveryOption } from '../../data/deliveryOptions.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 
 
@@ -13,23 +13,12 @@ export function renderOrderSummary() {
 
     cart.forEach((cartItem) => {
         const productId = cartItem.productId; 
-        let matchingProduct;
-
-        products.forEach((product) => {
-            if(product.id === productId) {
-                matchingProduct = product;
-            }
-        });
+        const matchingProduct = getProduct(productId);
 
 
         const deliveryOptionId = cartItem.deliveryOptionId;
-        let deliveryOption;
+        const deliveryOption = getDeliveryOption(deliveryOptionId);
 
-        deliveryOptions.forEach((option) => {
-            if(option.id === deliveryOptionId) {
-                deliveryOption = option;
-            }
-        });
 
         const today = dayjs();
         const deliveryDate = today.add(deliveryOption.deliveryDays, 'days');
@@ -38,7 +27,7 @@ export function renderOrderSummary() {
 
         cartSummaryHTML +=
         `
-            <div class="cart-item-container js_cart_item_container-${matchingProduct.id}">
+            <div class="cart-item-container js-cart-item-container-${matchingProduct.id}">
                 <div class="delivery-date">
                     Delivery date: ${dateString}
                 </div>
@@ -80,10 +69,6 @@ export function renderOrderSummary() {
     });
                 
     document.querySelector('.js_order_summary').innerHTML = cartSummaryHTML;
-
-
-
-
 
 
 
@@ -129,7 +114,7 @@ export function renderOrderSummary() {
             const productId = link.dataset.productId;
             removeFromCart(productId);
 
-            const container = document.querySelector(`.js_cart_item_container-${productId}`);
+            const container = document.querySelector(`.js-cart-item-container-${productId}`);
             container.remove();
             updateCartQuantity(); //checkout items number is updated here when user deletes a certain cart item
 
