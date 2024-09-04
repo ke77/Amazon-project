@@ -29,7 +29,7 @@
 
 
 
-Last 14:19:00
+Last 14:50:00
 
 
 
@@ -38,3 +38,25 @@ Last 14:19:00
     // const today = dayjs();
     // const deliveryDate = today.add(7, 'days');
     // deliveryDate.format('dddd, MMMM, D');
+
+
+
+
+// cart.JS
+    // // my code block (Ex)
+    // let selectValue;
+    // document.querySelectorAll('.js_select_button').forEach((selectButton) => {
+    //     selectButton.addEventListener('click', () => {
+    //         // console.log(selectButton.value);
+    //         // console.log(selectButton.productId);
+    //         const productId = selectButton.dataset.productId;
+    //         selectValue = selectButton.value;
+    //         console.log(selectValue);
+
+
+    //         // get option value here
+    //         // then add value to quantity value. so when 'add to cart' is clicked, it updates that value
+            
+    //     });
+    // });
+

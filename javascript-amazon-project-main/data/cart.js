@@ -14,24 +14,6 @@ if(!cart) {
 
 
 
-    // // my code block (Ex)
-    // let selectValue;
-    // document.querySelectorAll('.js_select_button').forEach((selectButton) => {
-    //     selectButton.addEventListener('click', () => {
-    //         // console.log(selectButton.value);
-    //         // console.log(selectButton.productId);
-    //         const productId = selectButton.dataset.productId;
-    //         selectValue = selectButton.value;
-    //         console.log(selectValue);
-
-
-    //         // get option value here
-    //         // then add value to quantity value. so when 'add to cart' is clicked, it updates that value
-            
-    //     });
-    // });
-
-
 
 function saveToStorage() {
     localStorage.setItem('cart', JSON.stringify(cart));
@@ -83,4 +65,20 @@ export function calculateCartQuantity() {
     });
 
     return cartQuantity;
+}
+
+
+export function updateDeliveryOption(productId, deliveryOptionId) {
+    let matchingItem;
+    
+    cart.forEach((cartItem) => { //cartItem is whole object
+        if(productId === cartItem.productId) {
+            matchingItem = cartItem;
+        }
+    });
+
+    matchingItem.deliveryOptionId = deliveryOptionId; 
+    //updates deliveryOptionID in the cart
+
+    saveToStorage(); 
 }
