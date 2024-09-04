@@ -1,9 +1,9 @@
 // import {cart as myCart} from '../data/cart.js'; //literally changes var name so another 'cart' var can be declared without causing naming conflicts
 // import * as cartModule from '../data/cart.js' //imports everything from cart.js and puts it in a var that can be accessed as a property or method(using cartModule.cart or cartModule.addToCart('id');)
 
-import {cart, addToCart} from '../data/cart.js';
+import {cart, addToCart, calculateCartQuantity} from '../data/cart.js';
 import {products} from '../data/products.js';
-import { formatCurrency} from './utils/money.js';
+import {formatCurrency} from './utils/money.js';
 
 
 
@@ -62,22 +62,17 @@ products.forEach((product) => { //accumulator pattern on next line
 });
 
 
-document.querySelector('.js_products_grid').innerHTML = productsHTML//generates html and puts it on the page 
-
-
+document.querySelector('.js_products_grid').innerHTML = productsHTML; //generates html and puts it on the page 
 
 
 function updateCartQuantity() {
-    // Calcultes cart quantity
-    let cartQuantity = 0;
-    cart.forEach((cartItem) => {
-        cartQuantity += cartItem.quantity;
-    });
+    const cartQuantity = calculateCartQuantity();
 
-    // Updates page
+    // Updates page with new cart quantity
     document.querySelector('.js_cart_quantity')
         .innerHTML = cartQuantity;
 }
+
     
     
 document.querySelectorAll('.js_add_to_cart').forEach((button) => {
