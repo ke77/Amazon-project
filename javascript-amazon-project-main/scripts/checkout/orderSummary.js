@@ -3,6 +3,7 @@ import { products, getProduct } from '../../data/products.js';
 import { formatCurrency } from '../utils/money.js';
 import { deliveryOptions, getDeliveryOption } from '../../data/deliveryOptions.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
+import { renderPaymentSummary } from './paymentSummary.js';
 
 
 
@@ -118,6 +119,8 @@ export function renderOrderSummary() {
             container.remove();
             updateCartQuantity(); //checkout items number is updated here when user deletes a certain cart item
 
+            renderPaymentSummary();
+
         });
     });
 
@@ -139,6 +142,7 @@ export function renderOrderSummary() {
                 updateDeliveryOption(productId, deliveryOptionId); //these arguments point to the values from the line before this one
                 
                 renderOrderSummary();
+                renderPaymentSummary();
             });
         });
 }
