@@ -29,11 +29,11 @@
 
 
 
-"&amp;"??
 
 
 
-Last 14:50:00
+
+Last 15:34:00
 
 
 
@@ -46,6 +46,9 @@ Last 14:50:00
 
 
 
+
+
+///REMEMBER
 // cart.JS
     // // my code block (Ex)
     // let selectValue;
@@ -64,3 +67,8 @@ Last 14:50:00
     //     });
     // });
 
+
+
+"&amp;"??
+//do exercise 15h (github)
+//do exercise 15m
