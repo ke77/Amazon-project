@@ -10,7 +10,7 @@ export function renderCheckoutHeader() {
     `
         Checkout (<a class="return-to-home-link js_return_to_home_link"
         href="amazon.html"></a>)
-    `
+    `;
 
 
     document.querySelector('.js_checkout_header_middle_section')

@@ -29,11 +29,19 @@
 
 
 
+// Common Jasmine hooks
+   - beforeEach() = runs code before tests(setup code or code shared b/n tests can be written here)
+   - afterEach() = code like cleanup code to clean up html after a test can be written here
+   - beforeAll()
+   - afterAll()
 
 
 
 
-Last 16:44:00
+
+
+
+Last 17:17:00
 
 
 
