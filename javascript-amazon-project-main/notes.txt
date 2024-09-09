@@ -37,6 +37,10 @@
 
 
 
+// dayJS external date library
+   - const today = dayjs();
+   - const deliveryDate = today.add(7, 'days');
+   - deliveryDate.format('dddd, MMMM, D');
 
 
 
@@ -47,9 +51,6 @@ Last 17:17:00
 
 
 
-    // const today = dayjs();
-    // const deliveryDate = today.add(7, 'days');
-    // deliveryDate.format('dddd, MMMM, D');
 
 
 
@@ -80,3 +81,7 @@ Last 17:17:00
 "&amp;"??
 //do exercise 15h (github)
 //do exercise 15m
+//exercise 16n
+
+
+// const someth = someth1 === someth2; //how??
