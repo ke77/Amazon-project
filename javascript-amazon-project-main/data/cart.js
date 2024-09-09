@@ -3,8 +3,8 @@ import { validDeliveryOption } from '../data/deliveryOptions.js'
 
 export let cart;
 
-loadFromStorage();
 
+loadFromStorage();
 
 export function loadFromStorage() {
     cart = JSON.parse(localStorage.getItem('cart'));
