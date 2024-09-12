@@ -48,7 +48,7 @@
 
 Last 20:16:00
 
-
+20:27 (asynchronous code explanation)
 
 
 
