@@ -75,7 +75,7 @@ describe('test suite: renderOrderSummary', () => {
 
     it('updates delivery option', () => {
         document.querySelector(`.js-delivery-option-${productId1}-3`).click();
-        console.log(document.querySelector(`.js-delivery-option-${productId1}-3`));
+        // console.log(document.querySelector(`.js-delivery-option-${productId1}-3`));
         expect(document.querySelector(`.js-delivery-option-input-${productId1}-3`).checked).toEqual(true);
         expect(cart.length).toEqual(2);
         expect(cart[0].productId).toEqual(productId1);

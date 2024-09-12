@@ -45,7 +45,7 @@
 
 
 
-Last 18:49:00
+Last 19:32:00
 
 
 
@@ -82,6 +82,7 @@ Last 18:49:00
 //do exercise 15h (github)
 //do exercise 15m
 //exercise 16n
+//exercise 17i(do this in finished amazon project)
 
 
 // const someth = someth1 === someth2; //how??
