@@ -89,6 +89,21 @@ export class Appliance extends Product {
 }
 
 
+// export let products = [];
+
+// function loadProducts() {
+//   const xhr = new XMLHttpRequest();
+
+//   xhr.addEventListener('load', () => {
+//     console.log(xhr.response);
+//   });
+
+//   xhr.open('GET', 'https://supersimplebackend.dev/products');
+//   xhr.send();
+// }
+
+
+
 
 
 export const products = [
@@ -773,4 +788,3 @@ export const products = [
 
   return new Product(productDetails);
 });
-
