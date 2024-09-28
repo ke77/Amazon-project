@@ -92,7 +92,7 @@ export class Appliance extends Product {
 
 export let products = [];
 
-export function loadProductsFetch() {
+export function loadProductsFetch(func) {
   const promise = fetch('https://supersimplebackend.dev/products').then((response) => {
     return response.json();
   }).then((productsData) => {
@@ -106,6 +106,8 @@ export function loadProductsFetch() {
     
       return new Product(productDetails);
     });
+
+    func();
 
     console.log('loaded products');
   });

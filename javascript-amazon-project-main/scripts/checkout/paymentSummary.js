@@ -2,7 +2,7 @@ import { cart, calculateCartQuantity } from "../../data/cart.js";
 import { getProduct } from "../../data/products.js";
 import { deliveryOptions, getDeliveryOption } from "../../data/deliveryOptions.js";
 import { formatCurrency } from '../utils/money.js';
-import { addOrder } from "../../data/orders.js";
+import { orders, addOrder } from "../../data/orders.js";
 
 
 
@@ -13,8 +13,7 @@ export function renderPaymentSummary() {
     
     cart.forEach((cartItem) => {
         const product = getProduct(cartItem.productId);
-        productPriceCents += product.priceCents * cartItem.quantity
-
+        productPriceCents += product.priceCents * cartItem.quantity;
 
         // Shipping cost
         const deliveryOption = getDeliveryOption(cartItem.deliveryOptionId);
@@ -87,13 +86,12 @@ export function renderPaymentSummary() {
                     cart: cart
                 })
             });
-    
             const order = await response.json();
             addOrder(order);
+            console.log(order);
         } catch (error) {
-            console.log('unexpected error. try again later.');
+            console.log('unexpected error. try again later.', error);
         }
-
         window.location.href = 'orders.html';
     });    
 

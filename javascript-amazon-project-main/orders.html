@@ -2,10 +2,6 @@
 <html>
   <head>
     <title>Orders</title>
-
-    <!-- This code is needed for responsive design to work.
-      (Responsive design = make the website look good on
-      smaller screen sizes like a phone or a tablet). -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Load a font called Roboto from Google Fonts. -->
@@ -18,7 +14,7 @@
     <link rel="stylesheet" href="styles/shared/amazon-header.css">
     <link rel="stylesheet" href="styles/pages/orders.css">
   </head>
-  <body>
+  <body style="background-color: #454545;">
     <div class="amazon-header">
       <div class="amazon-header-left-section">
         <a href="amazon.html" class="header-link">
@@ -54,8 +50,8 @@
     <div class="main">
       <div class="page-title">Your Orders</div>
 
-      <div class="orders-grid">
-        <div class="order-container">
+      <div class="orders-grid js_orders_grid">
+        <!-- <div class="order-container">
           
           <div class="order-header">
             <div class="order-header-left-section">
@@ -97,7 +93,7 @@
             </div>
 
             <div class="product-actions">
-              <a href="tracking.html">
+              <a href="tracking.html?orderId={orderId}&productId=${productId}">
                 <button class="track-package-button button-secondary">
                   Track package
                 </button>
@@ -132,9 +128,9 @@
               </a>
             </div>
           </div>
-        </div>
+        </div> -->
 
-        <div class="order-container">
+        <!-- <div class="order-container">
 
           <div class="order-header">
             <div class="order-header-left-section">
@@ -175,7 +171,7 @@
               </button>
             </div>
 
-            <div class="product-actions">
+            <div class="product-actions js_product_actions">
               <a href="tracking.html">
                 <button class="track-package-button button-secondary">
                   Track package
@@ -183,8 +179,11 @@
               </a>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
+
+    <script type="module" src="../javascript-amazon-project-main/scripts/orders.js"></script>
+
   </body>
 </html>

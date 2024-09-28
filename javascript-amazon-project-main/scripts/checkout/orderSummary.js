@@ -19,8 +19,6 @@ export function renderOrderSummary() {
 
         const deliveryOptionId = cartItem.deliveryOptionId;
         const deliveryOption = getDeliveryOption(deliveryOptionId);
-
-
         const dateString = calculateDeliveryDate(deliveryOption);
 
 
@@ -152,10 +150,8 @@ export function renderOrderSummary() {
             const productId = link.dataset.productId;
             removeFromCart(productId);
 
-            const container = document.querySelector(`.js-cart-item-container-${productId}`);
-            container.remove();
-            renderCheckoutHeader(); //checkout items number is updated here when user deletes a certain cart item
-
+            renderOrderSummary();
+            renderCheckoutHeader();
             renderPaymentSummary();
 
         });

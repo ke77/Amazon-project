@@ -1,14 +1,13 @@
 // import {cart as myCart} from '../data/cart.js'; //literally changes var name so another 'cart' var can be declared without causing naming conflicts
 // import * as cartModule from '../data/cart.js' //imports everything from cart.js and puts it in a var that can be accessed as a property or method(using cartModule.cart or cartModule.addToCart('id');)
 
-import { cart, addToCart, calculateCartQuantity } from '../data/cart.js';
-import { products, loadProducts } from '../data/products.js';
-import { formatCurrency } from './utils/money.js';
+import { addToCart, calculateCartQuantity } from '../data/cart.js';
+import { products, loadProductsFetch} from '../data/products.js';
 
 
 
 
-loadProducts(renderProductsGrid);
+loadProductsFetch(renderProductsGrid);
 
 function renderProductsGrid() {
 
@@ -92,3 +91,5 @@ function renderProductsGrid() {
         });
     });
 }
+
+// renderProductsGrid();

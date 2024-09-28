@@ -49,6 +49,7 @@
 Last 21:37:00
 
 20:27 (asynchronous code explanation)
+22:03 (URL parameters) for tracking page
 
 
 
@@ -80,10 +81,8 @@ Last 21:37:00
 
 
 "&amp;"??
-//do exercise 15h (github)
 //do exercise 15m
-//exercise 16n
-//exercise 17i(do this in finished amazon project)
+//exercise 16n(tests for other files)
 
 
 // const someth = someth1 === someth2; //how??
