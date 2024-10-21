@@ -12,7 +12,21 @@ loadProductsFetch(renderProductsGrid);
 function renderProductsGrid() {
 
     let productsHTML = '';
-    products.forEach((product) => { //accumulator pattern on next line
+    
+    const url = new URL(window.location.href);
+    const search = url.searchParams.get('search');
+
+    // is the reason rendering isn't done twice for both 'all products' and 'fiitered prodcts'
+    let filteredProducts = products;
+
+    if(search) {
+        filteredProducts = products.filter((product) => {
+            return product.name.toLowerCase().includes(search) || product.keywords.includes(search.toLowerCase());
+        });
+    }
+
+    
+    filteredProducts.forEach((product) => {
         productsHTML += `
             <div class="product-container">
             <div class="product-image-container">
@@ -37,18 +51,18 @@ function renderProductsGrid() {
             </div>
 
             <div class="product-quantity-container">
-            <select class="js_select_button" data-product-id="${product.id}">
-                <option selected value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-            </select>
+                <select class="js_select_button" data-product-id="${product.id}">
+                    <option selected value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
             </div>
 
             ${product.extraInfoHTML()}
@@ -56,12 +70,12 @@ function renderProductsGrid() {
             <div class="product-spacer"></div>
 
             <div class="added-to-cart">
-            <img src="images/icons/checkmark.png">
-            Added
+                <img src="images/icons/checkmark.png">
+                Added
             </div>
 
             <button class="add-to-cart-button button-primary js_add_to_cart" data-product-id="${product.id}">
-            Add to Cart
+                Add to Cart
             </button>
         </div>
         `;
@@ -90,6 +104,30 @@ function renderProductsGrid() {
 
         });
     });
+
+
+
+    function handleSearch() {
+        const search = document.querySelector('.js_search_bar').value;
+        window.location.href = `amazon.html?search=${search}`;
+    }
+    
+    const searchIcon = document.querySelector('.js_search_icon');
+    const searchBar = document.querySelector('.js_search_bar');
+    
+    searchIcon.addEventListener('click', handleSearch);
+    
+    searchBar.addEventListener('keypress', (event) => {
+        if (event.key === "Enter") {
+            handleSearch();
+        }
+    });
 }
 
-// renderProductsGrid();
+
+loadProductsFetch(renderProductsGrid).then(() => {
+    console.log('products have been fetched succefully!');
+}).catch((error) => {
+    console.log('an error occurred while fetching...');
+    console.log(error);
+});

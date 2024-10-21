@@ -49,7 +49,7 @@ async function renderTrackingPage() {
         <img class="product-image" src="${product.image}">
 
         <div class="progress-labels-container">
-            <div class="progress-label ${percentProgress < 50 ? 'curremt-status' : ''}">
+            <div class="progress-label ${percentProgress < 50 ? 'current-status' : ''}">
                 Preparing
             </div>
             <div class="progress-label ${(percentProgress >= 50 && percentProgress < 100) ? 'current status' : ''}">

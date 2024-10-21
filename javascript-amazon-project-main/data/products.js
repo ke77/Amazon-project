@@ -22,6 +22,7 @@ export class Product {
   rating;
   priceCents; 
   type;
+  keywords;
 
   constructor(productDetails) {
     this.id = productDetails.id;
@@ -30,6 +31,7 @@ export class Product {
     this.rating = productDetails.rating;
     this.priceCents = productDetails.priceCents;
     this.type = productDetails.type;
+    this.keywords = productDetails.keywords;
   }
 
   getStarsUrl() {
@@ -92,27 +94,26 @@ export class Appliance extends Product {
 
 export let products = [];
 
-export function loadProductsFetch(func) {
+export function loadProductsFetch(renderProductsGrid) {
   const promise = fetch('https://supersimplebackend.dev/products').then((response) => {
     return response.json();
   }).then((productsData) => {
       products = productsData.map((productDetails) => {
-      if(productDetails.type === 'clothing') {
-        return new Clothing(productDetails);
+        if(productDetails.type === 'clothing') {
+          return new Clothing(productDetails);
+      
+        } else if(productDetails.type === 'appliance') {
+          return new Appliance(productDetails);
+        }
     
-      } else if(productDetails.type === 'appliance') {
-        return new Appliance(productDetails);
-      }
-    
-      return new Product(productDetails);
-    });
-
-    func();
-
-    console.log('loaded products');
+        return new Product(productDetails);
+      });
+      
+      renderProductsGrid();
+      // console.log('loaded products');
   });
 
-  return promise;
+  return promise; //is the reason i can comment above console.log statement and do proper error handling in the amazon.js file
 }
 
 
