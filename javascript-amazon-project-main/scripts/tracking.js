@@ -34,7 +34,7 @@ async function renderTrackingPage() {
     const percentProgress = ((today - orderTime) / (deliveryTime - orderTime)) * 100;
 
     const trackingPageHTML = `
-        <div class="delivery-date">
+        <div class="delivery-date js_delivery_date">
             Arriving on ${dayjs(productDetails.estimatedDeliveryTime).format('dddd, MMMM D')}
         </div>
 
@@ -67,6 +67,9 @@ async function renderTrackingPage() {
     `;
 
     document.querySelector('.js_tracked_order_container').innerHTML = trackingPageHTML;
+
+
+
 
 }
 

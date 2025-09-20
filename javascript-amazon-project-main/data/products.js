@@ -1,4 +1,5 @@
 import { formatCurrency } from '../scripts/utils/money.js';
+import { renderProductsGrid } from '../scripts/amazon.js';
 
 
 
@@ -94,7 +95,7 @@ export class Appliance extends Product {
 
 export let products = [];
 
-export function loadProductsFetch(renderProductsGrid) {
+export function loadProductsFetch() {
   const promise = fetch('https://supersimplebackend.dev/products').then((response) => {
     return response.json();
   }).then((productsData) => {
@@ -109,12 +110,15 @@ export function loadProductsFetch(renderProductsGrid) {
         return new Product(productDetails);
       });
       
-      renderProductsGrid();
-      // console.log('loaded products');
-  });
-
-  return promise; //is the reason i can comment above console.log statement and do proper error handling in the amazon.js file
+      console.log('loaded products');        
+    });
+    
+    return promise; //is the reason i can comment above console.log statement and do proper error handling in the amazon.js file & do another step(like next code block)
 }
+loadProductsFetch().then(() => { // promise is returned here, so can be used for next step
+  renderProductsGrid();
+  console.log('Product rendered successfully');
+});
 
 
 

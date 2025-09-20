@@ -2,21 +2,20 @@
 // import * as cartModule from '../data/cart.js' //imports everything from cart.js and puts it in a var that can be accessed as a property or method(using cartModule.cart or cartModule.addToCart('id');)
 
 import { addToCart, calculateCartQuantity } from '../data/cart.js';
-import { products, loadProductsFetch} from '../data/products.js';
+import { products } from '../data/products.js';  
 
 
 
 
-loadProductsFetch(renderProductsGrid);
 
-function renderProductsGrid() {
+export function renderProductsGrid() {
 
     let productsHTML = '';
     
     const url = new URL(window.location.href);
     const search = url.searchParams.get('search');
 
-    // is the reason rendering isn't done twice for both 'all products' and 'fiitered prodcts'
+    // is the reason rendering isn't done twice for both 'all products' and 'fiitered prodcts' separately
     let filteredProducts = products;
 
     if(search) {
@@ -122,12 +121,15 @@ function renderProductsGrid() {
             handleSearch();
         }
     });
+
+
+    
 }
 
 
-loadProductsFetch(renderProductsGrid).then(() => {
-    console.log('products have been fetched succefully!');
-}).catch((error) => {
-    console.log('an error occurred while fetching...');
-    console.log(error);
-});
+// loadProductsFetch(renderProductsGrid).then(() => {
+//     console.log('products have been fetched succefully!');
+// }).catch((error) => {
+//     console.log('an error occurred while fetching...');
+//     console.log(error);
+// });

@@ -9,6 +9,7 @@ import { addToCart } from '../data/cart.js';
 
 export async function loadPage() {
     await loadProductsFetch();
+    // await renderProductsGrid();
 
     let ordersHTML = '';
 

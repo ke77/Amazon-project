@@ -20,4 +20,5 @@ async function loadPage() {
         renderPaymentSummary();
         renderOrderSummary();
 }
+
 loadPage();

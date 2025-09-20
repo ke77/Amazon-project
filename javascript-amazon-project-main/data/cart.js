@@ -142,3 +142,12 @@ export async function loadCartFetch() {
 
     return response;
 }
+
+
+// empties cart after an order is placed
+export function resetCart() {
+    cart = [];
+    saveToStorage();
+
+    // update cart quantity
+}
